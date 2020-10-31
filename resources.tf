@@ -2,7 +2,8 @@ resource "aws_instance" "ericsson_server" {
 	ami = "ami-01e36b7901e884a10"
 	instance_type = "t2.micro"
 	key_name = "ericsson-kul"
-	count = 1
+	count = var.server_count
+	availability_zone = var.aws_az
 	tags = {
 		Name = "Ericsson-Kul"
 	}
