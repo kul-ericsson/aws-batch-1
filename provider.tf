@@ -1,0 +1,5 @@
+# Configuring the Providers
+
+provider "aws" {
+	region = var.aws_region
+}
