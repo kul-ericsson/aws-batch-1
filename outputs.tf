@@ -13,3 +13,7 @@ output "ericsson_server_private_IP" {
 output "ericsson_vol_IDs" {
 	value = aws_ebs_volume.ericsson-vol.*.id
 }
+
+output "ericsson_MYSQL_ENDPOINT" {
+	value = aws_db_instance.ericsson_mysql.endpoint
+}
