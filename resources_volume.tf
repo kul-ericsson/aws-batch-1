@@ -12,6 +12,7 @@ resource "aws_volume_attachment" "attach-vol" {
 	volume_id = aws_ebs_volume.ericsson-vol[count.index].id
 	instance_id = aws_instance.ericsson_server[count.index].id
 	device_name = "/dev/sdf"
+	skip_destroy = "true"
 	
 	provisioner "remote-exec" {
 		connection {
