@@ -12,3 +12,7 @@ resource "aws_db_instance" "ericsson_mysql" {
   skip_final_snapshot  = "true"
   //final_snapshot_identifier = "demo"
 }
+
+resource "mysql_database" "ericsson_db" {
+	name = "ericsson_db"
+}
