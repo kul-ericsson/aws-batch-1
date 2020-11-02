@@ -16,3 +16,16 @@ resource "aws_db_instance" "ericsson_mysql" {
 resource "mysql_database" "ericsson_db" {
 	name = "ericsson_db"
 }
+
+resource "mysql_user" "dbuser" {
+	user = "dbuserkul"
+	host = aws_instance.ericsson_server[0].private_ip
+	plaintext_password = "dbpwdkul"
+}
+
+resource "mysql_grant" "dbgrant" {
+	user = mysql_user.dbuser.user
+	host = mysql_user.dbuser.host
+	database = mysql_database.ericsson_db.name
+	privileges = ["SELECT","UPDATE"]
+}
