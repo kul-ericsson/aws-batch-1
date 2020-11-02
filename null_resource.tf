@@ -1,5 +1,4 @@
 resource "null_resource" "for_configs" {
-	
 	provisioner "remote-exec" {
 		connection {
 			type = "ssh"
@@ -10,5 +9,10 @@ resource "null_resource" "for_configs" {
 		inline = [
 			"sudo yum install -y mysql"
 		]
-	}	
+	}
+	
+	triggers = {
+		server_id = aws_instance.ericsson_server[0].id
+	}
+	
 }
